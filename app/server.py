@@ -43,10 +43,11 @@ async def setup_learner():
             raise
 
 
-loop = asyncio.get_event_loop()
-tasks = [asyncio.ensure_future(setup_learner())]
-learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
-loop.close()
+#loop = asyncio.get_event_loop()
+#tasks = [asyncio.ensure_future(setup_learner())]
+#learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
+#loop.close()
+learn = load_learner(path, export_file_name)
 
 @app.route('/')
 async def homepage(request):
