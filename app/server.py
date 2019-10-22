@@ -43,11 +43,12 @@ async def setup_learner():
             raise
 
 
-loop = asyncio.get_event_loop()
-tasks = [asyncio.ensure_future(setup_learner())]
-learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
-loop.close()
-
+@app.before_first_request
+async def app_load_model():
+	loop = asyncio.get_event_loop()
+	tasks = [asyncio.ensure_future(setup_learner())]
+	learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
+	loop.close()
 
 @app.route('/')
 async def homepage(request):
@@ -63,7 +64,3 @@ async def analyze(request):
     prediction = learn.predict(img)[0]
     return JSONResponse({'result': str(prediction)})
 
-
-if __name__ == '__main__':
-    if 'serve' in sys.argv:
-        uvicorn.run(app=app, host='0.0.0.0', port=5000, log_level="info")
