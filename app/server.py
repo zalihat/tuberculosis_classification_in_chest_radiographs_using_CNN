@@ -43,12 +43,10 @@ async def setup_learner():
             raise
 
 
-@app.before_first_request
-async def app_load_model():
-	loop = asyncio.get_event_loop()
-	tasks = [asyncio.ensure_future(setup_learner())]
-	learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
-	loop.close()
+loop = asyncio.get_event_loop()
+tasks = [asyncio.ensure_future(setup_learner())]
+learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
+loop.close()
 
 @app.route('/')
 async def homepage(request):
