@@ -1,72 +1,77 @@
 <html lang='en'>
-<head>
-  <meta charset='utf-8'>
-  <link rel='stylesheet' href='../static/style.css'>
- <title> </title>
-</head>
-<body>
-<header id="header">
 
-      
-          <nav> 
-            
-              <a href="#" id="home-page" class="nav">Home</a>
-              <a  href='#'  id="analyze-page" class="nav">Analyze</a>
-              <a id="records-page" class="nav">Record</a>
-              <a id="about-page" class="nav">About</a>
-           
-              </nav>
-           
-        
-        <div id="content"> 
-        <div id="about">
-            
-            <p>
-                Web application for tuberculosis screening in chest radiograph
-               
-            </p>
+<head>
+    <meta charset='utf-8'>
+    <link rel='stylesheet' href='../static/style.css'>
+    <title> </title>
+</head>
+
+<body>
+    <header>
+
+
+        <nav>
+
+            <a href="#" id="home-page" class="nav">Home</a>
+            <a href='#' id="analyze-page" class="nav">Analyze</a>
+            <a id="records-page" class="nav">Record</a>
+            <a id="about-page" class="nav">About</a>
+
+        </nav>
+
+
+        <div id="content">
+            <div id="about">
+
+                <p>
+                    Web application for tuberculosis screening in chest radiograph
+
+                </p>
+            </div>
+
+            <button id="proceed-To-Analyze-btn">Get started</button>
         </div>
-        
-        <button  id="proceed-To-Analyze-btn">Get started</button>
-        </div>
-        
-        <div id="select-image-container" class="no-display" >
-        <div id="select-image-div" >
-          
-                <div class='content'>
-                        <div class='no-display'>
-                          <input id='file-input'
-                                 class='no-display'
-                                 type='file'
-                                 name='file'
-                                 accept='image/*'
-                                 onchange='showPicked(this)'>
-                        </div>
-                        <button  class='choose-file-button' type='button' onclick='showPicker()' id="btn">Select Image</button>
-                        <div class='upload-label'>
-                          <label id='upload-label'>No file chosen</label>
-                        </div>
-                        <div id="image-picked-div">
-                          <img id='image-picked' class='no-display' alt='Chosen Image' height='200' >
-                        </div>
-                        <div id="proceed-div" class="no-display">
-                        <button id="proceed-btn"  class="no-display" >Proceed</button>
-                        <button id="cancel-btn"  class="no-display"  >Cancel</button>
-                      </div>
-                    
-                      <div class='analyze'>
+
+        <div id="select-image-container" class="no-display">
+            <div id="select-image-div">
+
+                <div class='content' class="no-display">
+                    <div class='no-display'>
+                        <input id='file-input' class='no-display' type='file' name='file' accept='image/*' onchange='showPicked(this)'>
+                    </div>
+                    <button class='choose-file-button' type='button' onclick='showPicker()' id="btn">Select Image</button>
+                    <div class='upload-label'>
+                        <label id='upload-label'>No file chosen</label>
+                    </div>
+                </div>
+                <div class="analyze-div" class="no-display">
+                    <div id="image-picked-div">
+                        <img id='image-picked' class='no-display' alt='Chosen Image' height='300'>
+                    </div>
+
+                    <div id="proceed-div" class="no-display">
+                        <button id="proceed-btn" class="no-display">Proceed</button>
+                        <button id="cancel-btn" class="no-display">Cancel</button>
+                    </div>
+                </div>
+                <div id="analyze-button-div" class='analyze'>
+                    <div id="ok">
+
+
                         <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
-                      </div>
-                      <div class='result-label'>
-                        <label id='result-label'></label>
-                      </div>
-    </div>
-    </div>  
-  </div>
+                    </div>
+                </div>
+                <div class='result-label'>
+                    <label id='result-label' class="no-display">Result = Tuberculosis Manifestation</label>
+                </div>
+
+            </div>
+        </div>
 
     </header>
     <script src='../static/jquery-3.3.1.min.js'></script>
- <script src='../static/client.js'></script>
+    <script src='../static/client.js'></script>
 
-    </body>
-    </html>
+</body>
+
+</html>
