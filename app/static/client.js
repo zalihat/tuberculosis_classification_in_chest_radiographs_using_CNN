@@ -31,7 +31,7 @@ function analyze() {
     var uploadFiles = el("file-input").files;
     if (uploadFiles.length !== 1) alert("Please select a file to analyze!");
 
-    // el("analyze-button").innerHTML = "Analyzing...";
+    el("analyze-button").innerHTML = "Analyzing...";
     let resultLabel = document.getElementById('result-label').classList.remove('no-display')
     let uploadLabel = document.getElementById('upload-label').classList.add('no-display')
     var xhr = new XMLHttpRequest();
